@@ -16,19 +16,24 @@
       }
       .navbar {
         background: #8a9a5b;
-        padding: 15px;
+        padding: 12px;
         display: flex;
         justify-content: center;
         align-items: center;
-        color: white;
-        gap: 20px;
+        flex-wrap: wrap;
+        gap: 12px;
+        width: 100%;
+        box-sizing: border-box;
       }
+
       .navbar a {
         color: white;
         text-decoration: none;
-        font-size: 16px;
-        padding: 10px 15px;
+        font-size: 15px;
+        padding: 8px 10px;
+        white-space: nowrap;
       }
+
       .navbar a:hover {
         text-decoration: underline;
       }
@@ -41,6 +46,7 @@
         border-radius: 15px;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         text-align: left;
+        display: block;
       }
       h1,
       h2 {
@@ -66,6 +72,7 @@
       <a href="../profile/viewprofile.html">Profile</a>
       <a href="../login/login.html">Logout</a>
     </div>
+
     <div class="container">
       <h1>🌍 About Carbon Footprint</h1>
       <h2>✅ What is Carbon Footprint?</h2>

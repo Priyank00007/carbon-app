@@ -1,69 +1,74 @@
 /* styles.css */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: url('leaves-background-with-metallic-foil_79603-956.avif') no-repeat center center/cover;
-    color: #3E2723;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: url("leaves-background-with-metallic-foil_79603-956.avif")
+    no-repeat center center/cover;
+  color: #3e2723;
 }
 .container {
-    display: flex;
-    width: 80%;
-    max-width: 900px;
-    background: rgba(245, 245, 220, 0.9);
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  width: 80%;
+  max-width: 900px;
+  background: rgba(245, 245, 220, 0.9);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 .left {
-    flex: 1;
-    padding: 40px;
-    background: rgba(138, 154, 91, 0.9);
-    color: white;
-    text-align: center;
+  flex: 1;
+  padding: 40px;
+  background: rgba(138, 154, 91, 0.9);
+  color: white;
+  text-align: center;
 }
 .right {
-    flex: 1;
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    color: #3E2723;
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #3e2723;
 }
-h1, h2 {
-    margin: 0 0 20px;
-    color: #006400;
+h1,
+h2 {
+  margin: 0 0 20px;
+  color: #006400;
 }
 input {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #8A9A5B;
-    border-radius: 5px;
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #8a9a5b;
+  border-radius: 5px;
 }
 button {
-    width: 100%;
-    padding: 10px;
-    background: #006400;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  display: block;
+  width: 200px;
+  margin: 20px auto;
+  padding: 12px;
+  background: #8a9a5b;
+  border: none;
+  color: white;
+  font-size: 16px;
+  border-radius: 8px; /* reduce this */
+  cursor: pointer;
 }
 button:hover {
-    background: #004d00;
+  background: #004d00;
 }
 a {
-    display: inline;
-    text-align: center;
-    margin-top: 10px;
-    color: #3E2723;
-    text-decoration: none;
+  display: inline;
+  text-align: center;
+  margin-top: 10px;
+  color: #3e2723;
+  text-decoration: none;
 }
 a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
