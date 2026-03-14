@@ -1,6 +1,6 @@
 console.log(JSON.parse(localStorage.getItem("user")).Email);
 async function generateReport() {
-  const response = await fetch("http://localhost:5000/generate_report", {
+  const response = await fetch("/generate_report", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

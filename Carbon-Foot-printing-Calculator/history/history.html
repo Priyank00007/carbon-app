@@ -188,9 +188,7 @@
       const email = storedUser.Email;
       window.onload = async () => {
         try {
-          const response = await fetch(
-            `http://localhost:5000/getTableData?email=${email}`
-          );
+          const response = await fetch(`/getTableData?email=${email}`);
           if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
           }

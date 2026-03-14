@@ -8,7 +8,7 @@ async function fetchUserRank() {
   }
 
   try {
-    let response = await fetch(`http://localhost:5000/user-rank/${username}`);
+    let response = await fetch(`/user-rank/${username}`);
 
     if (!response.ok) {
       throw new Error("User not found");

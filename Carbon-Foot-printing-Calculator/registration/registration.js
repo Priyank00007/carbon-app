@@ -33,7 +33,7 @@ registerBtn.onclick = function () {
     localStorage.setItem("user", user);
     console.log(user);
     // Send data to backend
-    fetch("http://localhost:5000/register", {
+    fetch("/register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: { name, email, password },
