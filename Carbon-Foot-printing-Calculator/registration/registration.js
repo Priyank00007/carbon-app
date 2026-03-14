@@ -36,7 +36,11 @@ registerBtn.onclick = function () {
     fetch("/register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: { name, email, password },
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        password: password,
+      }),
     })
       .then((response) => {
         return response.json();
