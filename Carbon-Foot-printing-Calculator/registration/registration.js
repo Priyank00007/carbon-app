@@ -48,8 +48,7 @@ registerBtn.onclick = function () {
       .then((data) => {
         console.log(data);
         alert(data.message);
-        window.location.href =
-          "/Carbon-Foot-printing-Calculator/login/login.html";
+        window.location.href = "../login/login.html";
       })
       .catch((error) => console.error("Error:", error));
   }

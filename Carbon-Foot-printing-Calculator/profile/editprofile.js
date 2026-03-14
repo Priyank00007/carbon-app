@@ -13,7 +13,7 @@ saveBtn.onclick = function () {
     Password: password.value,
   };
   localStorage.setItem("user", JSON.stringify(user));
-  window.location.href = "viewprofile.html";
+  window.location.href = "./viewprofile.html";
 };
 function populateData() {
   const storedUser = JSON.parse(localStorage.getItem("user"));

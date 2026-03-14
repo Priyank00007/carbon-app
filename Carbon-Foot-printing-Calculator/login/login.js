@@ -10,6 +10,6 @@ loginBtn.onclick = function () {
   ) {
     alert("wrong credentials!");
   } else {
-    window.location.href = "/Carbon-Foot-printing-Calculator/home/home.html";
+    window.location.href = "../home/home.html";
   }
 };

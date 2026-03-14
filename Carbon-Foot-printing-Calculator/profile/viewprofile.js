@@ -5,7 +5,7 @@ const gender = document.getElementById("gender");
 const address = document.getElementById("address");
 const password = document.getElementById("password");
 editBtn.onclick = function () {
-  window.location.href = "editprofile.html";
+  window.location.href = "./editprofile.html";
 };
 function populateData() {
   const storedUser = JSON.parse(localStorage.getItem("user"));
