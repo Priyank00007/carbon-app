@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Suggestions for Reducing Carbon Footprint</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: url("/Carbon-Foot-printing-Calculator/leaves-background-with-metallic-foil_79603-956.avif")
+          no-repeat center center/cover;
+        color: #3e2723;
+      }
+      .navbar {
+        background: #8a9a5b;
+        padding: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        gap: 20px;
+      }
+      .navbar a {
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        padding: 10px 15px;
+      }
+      .navbar a:hover {
+        text-decoration: underline;
+      }
+      .container {
+        width: 90%;
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 50px;
+        background: rgba(245, 245, 220, 0.95);
+        border-radius: 15px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        text-align: center;
+      }
+      .category-select {
+        margin-bottom: 30px;
+      }
+      .category-select select {
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #8a9a5b;
+        border-radius: 5px;
+      }
+      .suggestions {
+        text-align: left;
+        margin-top: 20px;
+      }
+      .suggestions h3 {
+        color: #006400;
+        margin-bottom: 15px;
+      }
+      .suggestions ul {
+        list-style: square;
+        padding-left: 25px;
+      }
+      .suggestions li {
+        margin-bottom: 10px;
+        line-height: 1.5;
+      }
+    </style>
+  </head>
+  <body onload="showSuggestions()">
+    <div class="navbar">
+      <a href="/Carbon-Foot-printing-Calculator/home/home.html">Home</a>
+      <a href="/Carbon-Foot-printing-Calculator/calculator/calculator.html"
+        >Carbon Calculator</a
+      >
+      <a href="/Carbon-Foot-printing-Calculator/history/history.html"
+        >Activity Tracker</a
+      >
+      <a href="/Carbon-Foot-printing-Calculator/suggestions/suggestion.html"
+        >Suggestions</a
+      >
+      <a href="/Carbon-Foot-printing-Calculator/progress/progress.html"
+        >Progress Tracking</a
+      >
+      <a href="/Carbon-Foot-printing-Calculator/about/about.html"
+        >About Carbon Footprint</a
+      >
+      <a href="/Carbon-Foot-printing-Calculator/profile/viewprofile.html"
+        >Profile</a
+      >
+      <a href="/Carbon-Foot-printing-Calculator/login/login.html">Logout</a>
+    </div>
+    <div class="container">
+      <h2>Suggestions for Reducing Carbon Footprint</h2>
+      <div class="category-select">
+        <label for="category">Choose a category:</label>
+        <select id="category" onchange="showSuggestions()">
+          <option value="transportation" selected>Transportation</option>
+          <option value="energy">Energy Usage</option>
+          <option value="food">Food Choices</option>
+          <option value="waste">Waste Management</option>
+          <option value="water">Water Conservation</option>
+          <option value="shopping">Sustainable Shopping</option>
+        </select>
+      </div>
+      <div class="suggestions" id="suggestions"></div>
+    </div>
+    <script>
+      function showSuggestions() {
+        const category = document.getElementById("category").value;
+        const suggestions = document.getElementById("suggestions");
+        let content = "";
+
+        if (category === "transportation") {
+          content = `
+                    <h3>Transportation</h3>
+                    <ul>
+                        <li>Use public transport, carpool, or bike whenever possible.</li>
+                        <li>Switch to electric or hybrid vehicles.</li>
+                        <li>Reduce air travel and opt for trains where possible.</li>
+                        <li>Keep tires properly inflated to increase fuel efficiency.</li>
+                        <li>Walk for short distances instead of driving.</li>
+                    </ul>`;
+        } else if (category === "energy") {
+          content = `
+                    <h3>Energy Usage</h3>
+                    <ul>
+                        <li>Switch to energy-efficient LED bulbs.</li>
+                        <li>Use smart thermostats to regulate home heating and cooling.</li>
+                        <li>Turn off appliances when not in use.</li>
+                        <li>Install solar panels for sustainable energy.</li>
+                        <li>Use energy-efficient home insulation to reduce heating costs.</li>
+                    </ul>`;
+        } else if (category === "food") {
+          content = `
+                    <h3>Food Choices</h3>
+                    <ul>
+                        <li>Reduce meat consumption and opt for plant-based meals.</li>
+                        <li>Buy locally sourced and organic produce.</li>
+                        <li>Avoid food waste by planning meals in advance.</li>
+                        <li>Support sustainable farming practices.</li>
+                        <li>Grow your own vegetables and herbs.</li>
+                    </ul>`;
+        } else if (category === "waste") {
+          content = `
+                    <h3>Waste Management</h3>
+                    <ul>
+                        <li>Recycle and compost organic waste.</li>
+                        <li>Use reusable bags, bottles, and containers.</li>
+                        <li>Reduce single-use plastic consumption.</li>
+                        <li>Donate or upcycle old clothes and furniture.</li>
+                        <li>Support brands that use sustainable packaging.</li>
+                    </ul>`;
+        } else if (category === "water") {
+          content = `
+                    <h3>Water Conservation</h3>
+                    <ul>
+                        <li>Fix leaks and use water-efficient appliances.</li>
+                        <li>Turn off taps while brushing your teeth.</li>
+                        <li>Harvest rainwater for gardening.</li>
+                        <li>Use low-flow showerheads and faucets.</li>
+                        <li>Water plants during cooler hours to reduce evaporation.</li>
+                    </ul>`;
+        } else if (category === "shopping") {
+          content = `
+                    <h3>Sustainable Shopping</h3>
+                    <ul>
+                        <li>Buy second-hand or refurbished items.</li>
+                        <li>Support brands with ethical and eco-friendly practices.</li>
+                        <li>Avoid fast fashion and opt for durable clothing.</li>
+                        <li>Choose products with minimal packaging.</li>
+                        <li>Carry reusable shopping bags and containers.</li>
+                    </ul>`;
+        }
+        suggestions.innerHTML = content;
+      }
+    </script>
+  </body>
+</html>

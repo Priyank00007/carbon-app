@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration - Carbon Footprinting</title>
+    <link rel="stylesheet" href="/Carbon-Foot-printing-Calculator/styles.css" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: url("/Carbon-Foot-printing-Calculator/leaves-background-with-metallic-foil_79603-956.avif")
+          no-repeat center center/cover;
+        color: #3e2723;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        max-width: 600px;
+        background: rgba(245, 245, 220, 0.9);
+        border-radius: 10px;
+        padding: 40px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      }
+      h1 {
+        margin: 0 0 20px;
+        color: #006400;
+        text-align: center;
+      }
+      input,
+      select {
+        width: calc(100% - 20px);
+        padding: 12px;
+        margin: 10px 0;
+        border: 1px solid #8a9a5b;
+        border-radius: 5px;
+        font-size: 16px;
+        display: block;
+      }
+      .password-container {
+        position: relative;
+        width: 92%;
+      }
+      .password-container input {
+        width: calc(103.5% - 20px);
+        padding-right: 40px;
+      }
+      .toggle-password {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        font-size: 18px;
+      }
+      button {
+        width: 101.5%;
+        padding: 12px;
+        background: #006400;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      button:hover {
+        background: #004d00;
+      }
+      a {
+        display: block;
+        text-align: center;
+        margin-top: 10px;
+        color: #3e2723;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+    <script>
+      function togglePassword(id) {
+        var input = document.getElementById(id);
+        var icon = document.getElementById(id + "-icon");
+        if (input.type === "password") {
+          input.type = "text";
+          icon.textContent = "👁️"; // Hide password
+        } else {
+          input.type = "password";
+          icon.textContent = "🙈"; // Show password
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Register</h1>
+      <input type="text" placeholder="Full Name" id="name" />
+      <input type="email" placeholder="Email Address" id="email" required />
+      <select id="gender">
+        <option value="" id="editBtn">Select Gender</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+      </select>
+      <input type="text" placeholder="Address" id="address" />
+      <div class="password-container">
+        <input type="password" id="password" placeholder="Password" />
+        <span
+          class="toggle-password"
+          id="password-icon"
+          onclick="togglePassword('password')"
+          >🙈</span
+        >
+      </div>
+      <div class="password-container">
+        <input
+          type="password"
+          id="confirm-password"
+          placeholder="Confirm Password"
+        />
+        <span
+          class="toggle-password"
+          id="confirm-password-icon"
+          onclick="togglePassword('confirm-password')"
+          >🙈</span
+        >
+      </div>
+      <button id="registerBtn">Register</button>
+      <a href="/Carbon-Foot-printing-Calculator/login/login.html"
+        >Already have an account? Login</a
+      >
+    </div>
+  </body>
+  <script src="./registration.js" type="module"></script>
+</html>

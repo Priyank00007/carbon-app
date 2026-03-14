@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reset Password</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: url("../leaves-background-with-metallic-foil_79603-956.avif")
+          no-repeat center center/cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        color: #3e2723;
+      }
+      .container {
+        width: 60%;
+        background: rgba(245, 245, 220, 0.95);
+        padding: 30px;
+        border-radius: 15px;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      }
+      .input-group {
+        margin-bottom: 15px;
+        text-align: left;
+      }
+      .input-group label {
+        font-weight: bold;
+      }
+      .input-group input {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #8a9a5b;
+        border-radius: 5px;
+      }
+      .btn {
+        background: #8a9a5b;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.3s;
+        margin-top: 10px;
+        width: 100%;
+      }
+      .btn:hover {
+        background: #6f8a44;
+      }
+      .back-link {
+        display: block;
+        margin-top: 15px;
+        color: #3e2723;
+        text-decoration: none;
+      }
+      .back-link:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Reset Password</h2>
+      <form id="resetForm">
+        <div class="input-group">
+          <label>New Password:</label>
+          <input type="password" id="newPassword" required />
+        </div>
+        <div class="input-group">
+          <label>Confirm Password:</label>
+          <input type="password" id="confirmPassword" required />
+        </div>
+        <button type="button" class="btn" onclick="savePassword()">
+          Save Password
+        </button>
+      </form>
+      <a
+        href="/Carbon-Foot-printing-Calculator/login/login.html"
+        class="back-link"
+        >Back to Login</a
+      >
+    </div>
+
+    <script>
+      const storedUser = JSON.parse(localStorage.getItem("user"));
+      console.log(storedUser);
+      function savePassword() {
+        const newPassword = document.getElementById("newPassword").value;
+        const confirmPassword =
+          document.getElementById("confirmPassword").value;
+
+        if (newPassword !== confirmPassword) {
+          alert("Passwords do not match!");
+          return;
+        }
+        resetOTP(storedUser.Email, confirmPassword);
+        storedUser["Password"] = confirmPassword;
+        console.log(storedUser);
+        localStorage.setItem("user", JSON.stringify(storedUser));
+        alert("Password successfully changed!");
+        window.location.href =
+          "/Carbon-Foot-printing-Calculator/login/login.html";
+      }
+      async function resetOTP(email, newPassword) {
+        try {
+          console.log("📤 Sending OTP request for:", email); // Log request
+
+          const response = await fetch("http://localhost:5000/reset-password", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ email, newPassword }),
+          });
+
+          console.log("📥 Response received:", response);
+
+          const data = await response.json();
+          genOTP = data.otp;
+          console.log("📊 Response Data:", data);
+
+          if (response.ok) {
+            console.log("✅ OTP Sent Successfully:", data.otp);
+          } else {
+            console.error("❌ Error:", data.error);
+            alert("Failed to send Password.");
+          }
+        } catch (error) {
+          console.error("❌ Error sending OTP:", error);
+        }
+      }
+    </script>
+  </body>
+</html>

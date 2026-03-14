@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forgot Password</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: url("../leaves-background-with-metallic-foil_79603-956.avif")
+          no-repeat center center/cover;
+        color: #3e2723;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .container {
+        width: 80%;
+        max-width: 600px;
+        padding: 40px;
+        background: rgba(245, 245, 220, 0.95);
+        border-radius: 15px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        text-align: center;
+      }
+      .input-group {
+        margin-bottom: 20px;
+        text-align: left;
+      }
+      .input-group label {
+        display: block;
+        font-weight: bold;
+      }
+      .input-group input {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #8a9a5b;
+        border-radius: 5px;
+      }
+      .btn {
+        background: #8a9a5b;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      .btn:hover {
+        background: #6f8a44;
+      }
+      .link {
+        display: block;
+        margin-top: 20px;
+        color: #3e2723;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      .link:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Forgot Password</h2>
+      <p>Enter your email to receive an OTP.</p>
+      <form>
+        <div class="input-group">
+          <label for="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="Enter your email"
+            required
+          />
+          <br /><br />
+          <label for="otp">OTP:</label>
+          <input type="otp" id="otp" placeholder="Enter your OTP" required />
+        </div>
+        <button type="button" id="submit" class="btn">Get OTP</button>
+        <button type="button" id="submitOTP" class="btn">Submit OTP</button>
+      </form>
+      <a href="/Carbon-Foot-printing-Calculator/login/login.html" class="link"
+        >Back to Login</a
+      >
+    </div>
+  </body>
+  <script>
+    let sent = 0;
+    const submit = document.getElementById("submit");
+    const submitOTP = document.getElementById("submitOTP");
+    const email = document.getElementById("email");
+    submit.onclick = function () {
+      if (email.value == "") {
+        alert("wrong credentials!");
+      } else {
+        sendOTP(email.value);
+      }
+    };
+    let genOTP;
+    async function sendOTP(email) {
+      if (!email.includes("@")) {
+        alert("Invalid Email Format!");
+        return;
+      }
+      try {
+        console.log("📤 Sending OTP request for:", email); // Log request
+
+        const response = await fetch("http://localhost:5000/send-otp", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email }),
+        });
+
+        console.log("📥 Response received:", response);
+
+        const data = await response.json();
+        genOTP = data.otp;
+        console.log("📊 Response Data:", data);
+
+        if (response.ok) {
+          console.log("✅ OTP Sent Successfully:", data.otp);
+          alert("OTP sent to your email.");
+        } else {
+          console.error("❌ Error:", data.error);
+          alert("Failed to send OTP.");
+        }
+      } catch (error) {
+        console.error("❌ Error sending OTP:", error);
+      }
+    }
+    const otp = document.getElementById("otp");
+    submitOTP.onclick = function () {
+      if (otp.value == "") {
+        alert("Enter OTP field!");
+      }
+      if (otp.value != genOTP) {
+        alert("Wrong OTP entered!");
+      } else {
+        if (otp.value == genOTP) {
+          window.location.href = "reset.html";
+        }
+      }
+    };
+  </script>
+</html>

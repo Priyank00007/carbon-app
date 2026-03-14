@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Rank</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="navbar">
+      <a href="/Carbon-Foot-printing-Calculator/home/home.html">Home</a>
+      <a href="/Carbon-Foot-printing-Calculator/calculator/calculator.html"
+        >Carbon Calculator</a
+      >
+      <a href="/Carbon-Foot-printing-Calculator/history/history.html"
+        >Activity Tracker</a
+      >
+      <a href="/Carbon-Foot-printing-Calculator/suggestions/suggestion.html"
+        >Suggestions</a
+      >
+      <a href="/Carbon-Foot-printing-Calculator/progress/progress.html"
+        >Progress Tracking</a
+      >
+      <a href="/Carbon-Foot-printing-Calculator/about/about.html"
+        >About Carbon Footprint</a
+      >
+      <a href="/Carbon-Foot-printing-Calculator/profile/viewprofile.html"
+        >Profile</a
+      >
+      <a href="/Carbon-Foot-printing-Calculator/login/login.html">Logout</a>
+    </div>
+
+    <div class="container">
+      <h2>Check Your Rank</h2>
+
+      <input type="text" id="username" placeholder="Enter Email" />
+      <button onclick="fetchUserRank()">Check Rank</button>
+
+      <div class="rank-container" id="rankResult"></div>
+    </div>
+  </body>
+  <script src="progress.js"></script>
+</html>

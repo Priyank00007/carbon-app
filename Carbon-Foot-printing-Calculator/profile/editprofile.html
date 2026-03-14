@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Profile</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: url("../leaves-background-with-metallic-foil_79603-956.avif")
+          no-repeat center center/cover;
+        color: #3e2723;
+      }
+      .container {
+        width: 320px;
+        height: 600px;
+        background: rgba(245, 245, 220, 0.9);
+        border-radius: 30px;
+        padding: 40px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      h1 {
+        margin-bottom: 20px;
+        color: #006400;
+      }
+      input,
+      select {
+        width: calc(100% - 20px);
+        padding: 12px;
+        margin: 10px 0;
+        border: 1px solid #8a9a5b;
+        border-radius: 5px;
+        font-size: 16px;
+        display: block;
+      }
+      .password-container {
+        position: relative;
+        width: 100%;
+      }
+      .password-container input {
+        width: calc(100% - 40px);
+        padding-right: 40px;
+      }
+      .toggle-password {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        font-size: 18px;
+      }
+      button {
+        width: 100%;
+        padding: 12px;
+        background: #006400;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 20px;
+      }
+      button:hover {
+        background: #004d00;
+      }
+    </style>
+    <script>
+      function togglePassword() {
+        var input = document.getElementById("password");
+        var icon = document.getElementById("toggle-icon");
+        if (input.type === "password") {
+          input.type = "text";
+          icon.textContent = "👁️"; // Hide password
+        } else {
+          input.type = "password";
+          icon.textContent = "🙈"; // Show password
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Edit Profile</h1>
+      <input type="text" id="name" placeholder="Full Name" />
+      <input type="email" id="email" placeholder="Email Address" readonly />
+      <select id="gender">
+        <option value="" id="editBtn">Select Gender</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+      </select>
+      <input type="text" id="address" placeholder="Address" />
+      <div class="password-container">
+        <input type="password" id="password" placeholder="Password" />
+        <span
+          class="toggle-password"
+          id="toggle-icon"
+          onclick="togglePassword()"
+          >🙈</span
+        >
+      </div>
+      <button id="saveBtn">Save Changes</button>
+    </div>
+  </body>
+  <script src="editprofile.js"></script>
+</html>
