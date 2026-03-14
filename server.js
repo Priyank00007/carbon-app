@@ -9,10 +9,13 @@ app.use(cors()); // To allow frontend to access backend
 
 const path = require("path");
 
-// Serve frontend files
 app.use(
   express.static(path.join(__dirname, "Carbon-Foot-printing-Calculator"))
 );
+
+app.get("/", (req, res) => {
+  res.redirect("/registration/register.html");
+});
 
 // MySQL pool
 const pool = mysql.createPool({
@@ -37,17 +40,6 @@ app.post("/register", (req, res) => {
     }
     res.json({ message: "User registered successfully!" });
   });
-});
-
-app.get("/", (req, res) => {
-  res.sendFile(
-    path.join(
-      __dirname,
-      "Carbon-Foot-printing-Calculator",
-      "registration",
-      "register.html"
-    )
-  );
 });
 
 // 🔹 Route to Fetch User Details
