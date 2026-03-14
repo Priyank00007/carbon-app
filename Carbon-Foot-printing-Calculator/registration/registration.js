@@ -30,7 +30,7 @@ registerBtn.onclick = function () {
       Gender: gender.options[gender.selectedIndex].text,
       Password: password,
     };
-    localStorage.setItem("user", user);
+    localStorage.setItem("user", JSON.stringify(user));
     console.log(user);
     // Send data to backend
     fetch("/register", {
